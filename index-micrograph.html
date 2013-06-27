@@ -120,16 +120,28 @@
 		 * Some browsers (like Chrome) scroll immediately, while others (FF, IE) have a pleasant smooth scrolling effect. Smooth scrolling plays well with the parallax scrolling that is used for the images, so implement a mousewheel-friendly scrolling algorithm.
 		 * This algorithm supports multi-step scrolling, for when you flick the scroll wheel and it scrolls a lot in a short time, as opposed to a constant speed.
 		 * This block isn't executed if neither the <body> or <html> elements are scrollable.
-		 * TODO: Test on a Mac trackpad.
 		 */
 		if (scrollable != null) {
 			var numSteps = 0; // Number of steps to scroll
 			var distance = 70; // Pixels per scroll position
-			var duration = 180; // Time it takes to scroll (ms)
+			var duration = 150; // Time it takes to scroll (ms)
 			var currentAnimation = null; // Currently-executing scroll animation
 			var startScroll = $("body").scrollTop(); // Start scroll offset for multi-step scrolling.
+			var oldDelta = 0;
+			var touchpadScrolling = false;
 
 			$(window).mousewheel(function(event, delta) {
+				// Permanentally disable smooth scrolling when a touchpad is detected. (TODO: Find a better way?)
+				if (touchpadScrolling) return true;
+
+				// Touchpads, unlike mouse wheels, will return deltas over one. Stop smoothing if this is detected.
+				if (Math.abs(delta) > 1) {
+					console.log("Delta exceeded");
+					if (currentAnimation != null) currentAnimation.stop();
+					touchpadScrolling = true;
+					return true;
+				}
+
 				event.preventDefault();
 				event.stopImmediatePropagation();
 
@@ -146,6 +158,15 @@
 					// Replace the current scroll animation with a faster one
 					currentAnimation.stop();
 					numSteps += delta;
+				}
+
+				// Touchpads will fire constant events that rack up acceleration REAL fast.
+				// Stop smoothing if this is detected.
+				if (Math.abs(numSteps * distance) > 400) {
+					console.log("Distance exceeded");
+					if (currentAnimation != null) currentAnimation.stop();
+					touchpadScrolling = true;
+					return true;
 				}
 
 				// jQuery can animate scrolling!
