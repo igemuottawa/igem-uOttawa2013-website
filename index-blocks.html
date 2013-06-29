@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>uOttawa iGEM</title>
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400' rel='stylesheet' type='text/css'>
+	<link href="css/1140.css" rel="stylesheet" />
+
+	<style type="text/css">
+		body {
+			font-family: "Open Sans", "Calibri", sans-serif;
+			margin: 0px;
+			min-width: 800px;
+		}
+
+		h1 {
+			font-weight: 400;
+			margin: 0px;
+			padding: 5px;
+			width: 75%;
+		}
+
+		ul {
+			list-style: none;
+			margin-top: 0px;
+		}
+		ul li {
+			display: inline;
+			margin-left: 5px;
+		}
+		ul a {
+			color: #ddd;
+		}
+		ul a:hover {
+			color: #fff !important;
+		}
+
+		#header {
+			background-color: #111;
+			position: relative;
+		} #header img {
+			width: 100%;
+		} #header-content {
+			position: absolute;
+			top: 0px;
+			width: 100%;
+		}
+
+		#footer {
+			color: gray;
+			font-size: 12px;
+			margin: 20px 0px;
+			text-align: center;
+		}
+
+		.title {
+			font-size: 48px;
+			font-weight: bold;
+			padding: 5px 0px;
+			position: relative;
+		}
+
+		.black {
+			background-color: #111;
+			color: #eee;
+		}.black-transparent {
+			background-color: rgba(0, 0, 0, .75);
+			color: #eee;
+		}
+
+		.inside {
+			margin: auto;
+			max-width: 1140px;
+			width: 80%;
+		}
+			
+		/* Classes */
+		.zebra:nth-child(even) {
+			background-color: #f3f3f3;
+			border-bottom: 1px solid #ccc;
+			border-top: 1px solid #ccc;
+			padding: 10px 0px;
+		}
+
+		.figure {
+			border: 1px solid #ccc;
+			margin: 10px 0px 20px 0px;
+			max-width: 80%;
+			padding: 20px;
+		}
+
+		.left { text-align: left; }
+		.center { text-align: center; }
+		.right { text-align: right; }
+	</style>
+	
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery.slides.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			
+		});
+	</script>
+</head>
+<body>
+	<div id="header" class="content">
+		<img src="images/blocks-header.png" />
+		<div id="header-content" class="black-transparent">
+			<div class="inside">
+				<h1>uOttawa iGEM 2013</h1>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Human Practices</a></li>
+					<li><a href="#">Team</a></li>
+					<li><a href="#">Parts</a></li>
+					<li><a href="#">Modeling</a></li>
+					<li><a href="#">Notebook</a></li>
+					<li><a href="#">Safety</a></li>
+					<li><a href="#">Attributions</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="black">
+		<div class="inside">
+			<h1>Creating a fold-change detector with genetically-modified yeast.</h1>
+		</div>
+	</div>
+
+	<div class="zebra">
+		<div class="inside">
+			<h1>Why fold-change detection?</h1>
+			<p>Because fold-change detection is awesome. So awesome, in fact, that it will spontaneously cause your cat to help you with your taxes and cure your grandmother's arthritis. While juggling flaming chainsaws and playing the latest <i>Call of Duty</i> on a Commodore 64. Yup. It's that good. <a href="#">Learn more.</a></p>
+
+			<div class="center">
+				<img class="figure" src="images/figure-detection_schematic.png" alt="Detection schematic" />
+			</div>
+		</div>
+	</div>
+	<div class="zebra">
+		<div class="inside">
+			<h1>How can we detect changes in toxic molecules?</h1>
+			<p>Once our system is tuned and is working, it can be modified to act as a fold-change detector for toxic molecules. By replacing the pGEV promoter in front of the rtTA gene with a promoter that is inducible by a toxic molecule, the amount of rtTA produced will be directly correlated to the concentration of the toxic molecule in the cellular environment. <a href="#">Learn more.</a></p>
+		</div>
+	</div>
+	<div class="zebra">
+		<div class="inside">
+			<h1>How can we overcome background noise in chemical detection?</h1>
+			<p>This detector system is advantageous in that it detects fold-changes rather than changes in absolute values, which gives meaning to a signal in reference to the background signal level. This allows for the network to respond only to a signal that rises significantly above the background noise. <a href="#">Learn more.</a></p>
+		</div>
+	</div>
+
+	<div id="footer">
+		&copy; uOttawa iGEM Team 2013. This is frigging awesoooooome.
+	</div>
+</body>
+</html>
