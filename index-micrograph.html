@@ -135,7 +135,7 @@
 				if (touchpadScrolling) return true;
 
 				// Touchpads, unlike mouse wheels, will return deltas over one. Stop smoothing if this is detected.
-				if (Math.abs(delta) > 1) {
+				if (Math.abs(delta) > 6) {
 					console.log("Delta exceeded");
 					if (currentAnimation != null) currentAnimation.stop();
 					touchpadScrolling = true;
@@ -162,7 +162,7 @@
 
 				// Touchpads will fire constant events that rack up acceleration REAL fast.
 				// Stop smoothing if this is detected.
-				if (Math.abs(numSteps * distance) > 400) {
+				if (Math.abs(numSteps * distance) > 1000) {
 					console.log("Distance exceeded");
 					if (currentAnimation != null) currentAnimation.stop();
 					touchpadScrolling = true;
