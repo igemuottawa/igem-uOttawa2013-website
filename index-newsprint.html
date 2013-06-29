@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>uOttawa iGEM</title>
+	<title>uOttawa iGEM (Newsprint)</title>
 
 	<link href='http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400' rel='stylesheet' type='text/css'>
 	<link href="css/1140.css" rel="stylesheet" />
@@ -17,6 +17,18 @@
 			font-family: "PT Serif", "Georgia", serif;
 			font-size: 36px;
 			text-align: center;
+		}
+
+		#header {
+			font-family: 'PT Serif';
+		}
+		#header a {
+			color: black;
+			text-decoration: none;
+		}
+		#header a:hover {
+			color: black;
+			text-decoration: underline;
 		}
 
 		#slides {
@@ -66,27 +78,43 @@
 	<script type="text/javascript">
 		$(function(){
 			$("#slides").slidesjs({
-				navigation: false,width:1024,height:256
+				navigation: false,width:1140,height:440
 			});
 		});
 	</script>
 </head>
 <body>
-		<div class="grid">
+	<div class="grid">
+		<div>
 			<div class="row">
 				<div class="twelvecol">
 					<h1>uOttawa iGEM 2013</h1>
-					<p class="center" style="font-family: 'PT Serif';">
-						Project &middot; Applications &middot; Team &middot; Human Practices &middot; Parts
+					<p class="center" id="header">
+						<a href="#">Project</a> &middot;
+						<a href="#">Applications</a> &middot;
+						<a href="#">Team</a> &middot;
+						<a href="#"><a href="#">Human Practices</a> &middot;
+						<a href="#">Parts</a>
 					</p>
 					<div id="slides" >
-						<img src="http://placehold.it/1024x256">
-						<img src="http://placehold.it/1024x256">
-						<img src="http://placehold.it/1024x256">
-						<img src="http://placehold.it/1024x256">
+						<img src="images/newsprint-1.png">
+						<img src="images/newsprint-1.png">
+						<img src="images/newsprint-1.png">
+						<img src="images/newsprint-1.png">
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="sixcol">
+					<h1>How can we detect changes in toxic molecules?</h1>
+					<p>Once our system is tuned and is working, it can be modified to act as a fold-change detector for toxic molecules. By replacing the pGEV promoter in front of the rtTA gene with a promoter that is inducible by a toxic molecule, the amount of rtTA produced will be directly correlated to the concentration of the toxic molecule in the cellular environment. <a href="#">Learn more.</a></p>
+				</div>
+				<div class="sixcol lastcol">
+					<h1>How can we overcome background noise in chemical detection?</h1>
+					<p>This detector system is advantageous in that it detects fold-changes rather than changes in absolute values, which gives meaning to a signal in reference to the background signal level. This allows for the network to respond only to a signal that rises significantly above the background noise. <a href="#">Learn more.</a></p>
+				</div>
+			</div>
 		</div>
+	</div>
 </body>
 </html>
