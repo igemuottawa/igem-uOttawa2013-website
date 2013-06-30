@@ -127,14 +127,13 @@
 			var duration = 150; // Time it takes to scroll (ms)
 			var currentAnimation = null; // Currently-executing scroll animation
 			var startScroll = $("body").scrollTop(); // Start scroll offset for multi-step scrolling.
-			var oldDelta = 0;
 			var touchpadScrolling = false;
 
 			$(window).mousewheel(function(event, delta) {
 				// Permanentally disable smooth scrolling when a touchpad is detected. (TODO: Find a better way?)
 				if (touchpadScrolling) return true;
 
-				// Touchpads, unlike mouse wheels, will return deltas over one. Stop smoothing if this is detected.
+				// Touchpads, unlike mouse wheels, will return huge deltas. Stop smoothing if this is detected.
 				if (Math.abs(delta) > 6) {
 					console.log("Delta exceeded");
 					if (currentAnimation != null) currentAnimation.stop();
