@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>uOttawa iGEM (Micrograph)</title>
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400' rel='stylesheet' type='text/css'>
+
+	<style type="text/css"> 
+		/* Global Styles */
+		body {
+			background-color: #eee;
+			font-family: "Open Sans", "Calibri", sans-serif;
+			font-size: 14px;
+			font-weight: 300;
+			line-height: 160%;
+		}
+		
+		a {
+			color: #0c4a96 !important;
+		}
+	
+		h1 {
+			color: #0c4a96;
+			font-size: 1.7em;
+			font-weight: 300;
+		}
+			
+		h1, h2 {
+			font-family: "PT Serif", "Arial";
+		}
+	
+		/* Layout-specific Styles */
+		#menubar {
+			background-color: rgba(0, 0, 0, .78);
+			border-radius: 5px;
+			color: white;
+			font-family: "Open Sans";
+			font-size: 1.0em;
+			left: 18px;
+			padding: 12px;
+			position: fixed;
+			right: 18px;
+			text-align: center;
+			top: 8px;
+			z-index: 5;
+		}
+		
+		#wrapper {
+			margin: auto;
+			height: 1850px;
+			position: relative;
+			overflow:hidden;
+			top: 60px;
+			width: 1000px;
+		}
+		
+		#content-images {
+			position: absolute;
+			width: 100%;
+			z-index: 2;
+		} #content-images div, #content-text div {
+			position: absolute;
+			width: 100%;
+		}
+		#content-text {
+			position: absolute;
+			width: 100%;
+			z-index: 2;
+		}
+
+		#footer {
+			color: #999;
+			font-size: .8em;
+			text-align: center;
+		}
+	
+		.hlist {
+			list-style-type: none;
+			margin: 0px;
+			padding: 0px;
+		} .hlist li {
+			display: inline;
+			margin-right: 10px;
+		}
+		
+		.text {
+			background-color: rgba(238, 238, 238, .75);
+		}
+			
+		/* Classes */
+		.left { text-align: left; }
+		.center { text-align: center; }
+		.right { text-align: right; }
+	</style>
+	
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery.mousewheel.js"></script>
+	<script src="js/skrollr.min.js"></script>
+
+	<script type="text/javascript">
+	$(function() {
+		// Initialize parallax scrolling
+		skrollr.init({forceHeight: false, scale:1});
+
+		/**
+		 * Scroll determination code.
+		 * In standards mode, Chrome and Safari will use <body> for scrolling the entire page, but FF and IE like to use <html>. And you can't set both of these at once, since Opera doesn't like THAT.
+		 * So, scroll the <body> and <html> by 1 px and check which one it is. If you're using a shitty browser, then try to disable smooth scrolling entirely.
+		 */
+		var scrollable = null;
+		if ($("body").scrollTop(1).scrollTop() == 1)
+			scrollable = $("body");
+		else if ($("html").scrollTop(1).scrollTop() == 1)
+			scrollable = $("html");
+		scrollable.scrollTop(0); // Undo the scroll
+
+		/**
+		 * Smooth scrolling code.
+		 * Some browsers (like Chrome) scroll immediately, while others (FF, IE) have a pleasant smooth scrolling effect. Smooth scrolling plays well with the parallax scrolling that is used for the images, so implement a mousewheel-friendly scrolling algorithm.
+		 * This algorithm supports multi-step scrolling, for when you flick the scroll wheel and it scrolls a lot in a short time, as opposed to a constant speed.
+		 * This block isn't executed if neither the <body> or <html> elements are scrollable.
+		 */
+		if (scrollable != null) {
+			var numSteps = 0; // Number of steps to scroll
+			var distance = 70; // Pixels per scroll position
+			var duration = 150; // Time it takes to scroll (ms)
+			var currentAnimation = null; // Currently-executing scroll animation
+			var startScroll = $("body").scrollTop(); // Start scroll offset for multi-step scrolling.
+			var touchpadScrolling = false;
+
+			$(window).mousewheel(function(event, delta) {
+				// Permanentally disable smooth scrolling when a touchpad is detected. (TODO: Find a better way?)
+				if (touchpadScrolling) return true;
+
+				// Touchpads, unlike mouse wheels, will return huge deltas. Stop smoothing if this is detected.
+				if (Math.abs(delta) > 6) {
+					console.log("Delta exceeded");
+					if (currentAnimation != null) currentAnimation.stop();
+					touchpadScrolling = true;
+					return true;
+				}
+
+				event.preventDefault();
+				event.stopImmediatePropagation();
+
+				var current = scrollable.scrollTop();
+
+				// If not currently scrolling
+				if (numSteps == 0) {
+					startScroll = current;
+					numSteps += delta;
+				}
+
+				// If currently scrolling
+				else {
+					// Replace the current scroll animation with a faster one
+					currentAnimation.stop();
+					numSteps += delta;
+				}
+
+				// Touchpads will fire constant events that rack up acceleration REAL fast.
+				// Stop smoothing if this is detected.
+				if (Math.abs(numSteps * distance) > 1000) {
+					console.log("Distance exceeded");
+					if (currentAnimation != null) currentAnimation.stop();
+					touchpadScrolling = true;
+					return true;
+				}
+
+				// jQuery can animate scrolling!
+				var scrollTarget = startScroll - numSteps * distance;
+				currentAnimation = scrollable.animate({ scrollTop: scrollTarget }, {
+					queue: false,
+					duration: duration,
+					easing: "linear",
+					complete: function() { numSteps = 0 }
+				});
+				
+				return false;
+			});
+		}
+	});
+	</script>
+</head>
+<body>
+	<div id="menubar">
+		<ul class="hlist">
+			<li><img src="images/logo-dna-white.png" height="16px" /></li>
+			<li>Project</li>
+			<li>Team</li>
+			<li>Parts</li>
+			<li>Modeling</li>
+			<li>Safety</li>
+			<li>Attributions</li>
+		</ul>
+	</div>
+    
+	<div id="wrapper">
+		<div id="content-images" data-0="top: 0px;" data-2200="top: -2200px;">
+			<div class="right" style="top:0px;" ><img src="images/yeast6.png" width="750" /></div>
+			
+			<div class="left" style="top:1200px;"><img src="images/yeast5.png" width="600" /></div>
+			
+			<div class="center" style="top:2200px;"><img src="images/yeast4.png" width="600" /></div>
+		</div>
+		
+		<div id="content-text" >
+			<div class="text" style="top:150px;">
+				<h1>Why fold-change detection?</h1>
+				<p style="width: 400px;">Because fold-change detection is awesome. So awesome, in fact, that it will spontaneously cause your cat to help you with your taxes and cure your grandmother's arthritis. While juggling flaming chainsaws and playing the latest <i>Call of Duty</i> on a Commodore 64. Yup. It's that good. <a href="#">Learn more.</a></p>
+			</div>
+			<div style="font-family: 'PT Serif'; font-size: 1.3em;top:420px;">Scroll down</div>
+			
+			<div class="text right" style="top:850px;">
+				<h1>How can we detect changes in toxic molecules?</h1>
+				<p>Once our system is tuned and is working, it can be modified to act as a fold-change detector for toxic molecules. By replacing the pGEV promoter in front of the rtTA gene with a promoter that is inducible by a toxic molecule, the amount of rtTA produced will be directly correlated to the concentration of the toxic molecule in the cellular environment. <a href="#">Learn more.</a></p>
+			</div>
+				
+			<div class="text center" style="top:1600px;">
+				<h1>How can we overcome background noise in chemical detection?</h1>
+				<p>This detector system is advantageous in that it detects fold-changes rather than changes in absolute values, which gives meaning to a signal in reference to the background signal level. This allows for the network to respond only to a signal that rises significantly above the background noise. <a href="#">Learn more.</a></p>
+			</div>
+
+			<div id="footer" style="top:1770px;">
+				&copy; uOttawa iGEM Team 2013. This is frigging awesoooooome.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
