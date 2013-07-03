@@ -16,5 +16,3 @@ Be happy.
 Todo
 ====
 See github.
-- Mobile and tablet-optimized versions of Micrograph. Use CSS @-rules, and disable smooth scrolling.
-- Test smooth scrolling on: Desktop w/ mouse, mac trackpad, multitouch trackpad, standard trackpad.
