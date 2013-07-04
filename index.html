@@ -71,7 +71,7 @@
 			height: 60px;
 		}
 		
-		#wrapper {
+		#wrapper-large {
 			margin: auto;
 			max-width: 1000px;
 			min-width: 800px;
@@ -91,11 +91,12 @@
 			color: #999;
 			font-size: .8em;
 			text-align: center;
+			top: 1570px;
 		}
 		
 		/* Provides semi-transparent, white background to paragraphs.*/
 		.text {
-			background-color: rgba(238, 238, 238, .75);
+			background-color: rgba(238, 238, 238, .8);
 			box-sizing: border-box;
 			padding: 8px;
 		}
@@ -104,6 +105,72 @@
 		.left { text-align: left; }
 		.center { text-align: center; }
 		.right { text-align: right; }
+
+		/* Positioned images and text */
+		#text1 {
+			top: 150px;
+		}
+		#text1-2 {
+			font-family: 'PT Serif';
+			font-size: 1.3em;
+			top: 420px;
+		}
+		#text2 {
+			text-align: right;
+			top: 850px;
+		}
+		#text3 {
+			text-align: center;
+			top: 1325px;
+		}
+		#img1 {
+			text-align: right;
+			top: 0px;
+		} #img1 img { width: 70%; }
+		#img2 {
+			text-align: left;
+			top: 600px;
+		} #img2 img { width: 600px; }
+		#img3 {
+			text-align: center;
+			top: 1050px;
+		} #img3 img {width: 600px; }
+
+		#wrapper-small {display: none;}
+
+		@media handheld, only screen and (max-width: 800px) {
+			#wrapper-large {
+				display: none;
+			}
+
+			#wrapper-small {
+				display: block;
+			}
+
+			.sUnit {
+				margin-bottom: 15px;
+				position: relative;
+				text-align: center;
+			}
+			.sUnit img {
+				max-width: 600px;
+				min-width: 250px
+				position: relative;
+				width: 90%;
+			}
+			.sUnit .text {
+				bottom: 0px;
+				position: absolute;
+				text-align: left;
+			}
+			.sUnit h1 {
+				margin-bottom: 6px;
+				text-align: center;
+			}
+			.sUnit p {
+				text-align: left;
+			}
+		}
 	</style>
 	
 	<script src="js/jquery-1.9.1.min.js"></script>
@@ -122,26 +189,26 @@
     
 	<div id="spacer"></div>
 
-	<div id="wrapper">
+	<div id="wrapper-large">
 		<div id="content-images" data-0="top: 0px;" data-2200="top: -2200px;">
-			<div class="right" style="top:0px;"><img src="images/yeast6.png" width="70%" /></div>
+			<div id="img1"><img src="images/yeast6.png" /></div>
 			
-			<div class="left" style="top:600px;"><img src="images/yeast5.png" width="600" /></div>
+			<div id="img2"><img src="images/yeast5.png" /></div>
 			
-			<div class="center" style="top:1050px;"><img src="images/yeast4.png" width="600" /></div>
+			<div id="img3"><img src="images/yeast4.png" /></div>
 		</div>
 		
 		<div id="content-text" >
-			<div class="text" style="top:150px;">
+			<div class="text" id="text1">
 				<h1>Why fold-change detection?</h1>
 				<p style="width: 400px;">
 					Because fold-change detection is awesome. So awesome, in fact, that it will spontaneously cause your cat to help you with your taxes and cure your grandmother's arthritis. While juggling flaming chainsaws and playing the latest <i>Call of Duty</i> on a Commodore 64. Yup. It's that good.
 					<a href="#">Learn more.</a>
 				</p>
 			</div>
-			<div style="font-family: 'PT Serif'; font-size: 1.3em;top:420px;">Scroll down</div>
+			<div id="text1-2">&nbsp;Scroll down</div>
 			
-			<div class="text right" style="top:850px;">
+			<div class="text" id="text2">
 				<h1>How can we detect changes in toxic molecules?</h1>
 				<p>
 					Once our system is tuned and is working, it can be modified to act as a fold-change detector for toxic molecules. By replacing the pGEV promoter in front of the rtTA gene with a promoter that is inducible by a toxic molecule, the amount of rtTA produced will be directly correlated to the concentration of the toxic molecule in the cellular environment.
@@ -149,7 +216,7 @@
 				</p>
 			</div>
 				
-			<div class="text center" style="top:1325px;">
+			<div class="text" id="text3">
 				<h1>How can we overcome background noise in chemical detection?</h1>
 				<p>
 					This detector system is advantageous in that it detects fold-changes rather than changes in absolute values, which gives meaning to a signal in reference to the background signal level. This allows for the network to respond only to a signal that rises significantly above the background noise.
@@ -157,8 +224,47 @@
 				</p>
 			</div>
 
-			<div id="footer" style="top:1570px;">
+			<div id="footer">
 				&copy; uOttawa iGEM Team 2013. This is frigging awesoooooome.
+			</div>
+		</div>
+	</div>
+
+	<!--
+		This wrapper will be shown on handhelds and screen widths under 800px.
+		Parallax scrolling is disabled here.
+	-->
+	<div id="wrapper-small">
+		<div class="sUnit">
+			<img src="images/yeast6.png" />
+			<div class="text">
+				<h1>Why fold-change detection?</h1>
+				<p>
+					Because fold-change detection is awesome. So awesome, in fact, that it will spontaneously cause your cat to help you with your taxes and cure your grandmother's arthritis. While juggling flaming chainsaws and playing the latest <i>Call of Duty</i> on a Commodore 64. Yup. It's that good.
+					<a href="#">Learn more.</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="sUnit">
+			<img src="images/yeast5.png" />
+			<div class="text">
+				<h1>How can we detect changes in toxic molecules?</h1>
+				<p>
+					Once our system is tuned and is working, it can be modified to act as a fold-change detector for toxic molecules. By replacing the pGEV promoter in front of the rtTA gene with a promoter that is inducible by a toxic molecule, the amount of rtTA produced will be directly correlated to the concentration of the toxic molecule in the cellular environment.
+					<a href="#">Learn more.</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="sUnit">
+			<img src="images/yeast4.png" />
+			<div class="text">
+				<h1>How can we overcome background noise in chemical detection?</h1>
+				<p>
+					This detector system is advantageous in that it detects fold-changes rather than changes in absolute values, which gives meaning to a signal in reference to the background signal level. This allows for the network to respond only to a signal that rises significantly above the background noise.
+					<a href="#">Learn more.</a>
+				</p>
 			</div>
 		</div>
 	</div>
