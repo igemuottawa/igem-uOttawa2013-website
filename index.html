@@ -1,186 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
-	<!-- Roadmap:
-	- Use static positioning and responsive layout to standardize page on desktop and mobile browsers
-	- Write (placeholder) content pages
-	- Implement parallax and smooth scrolling, possibly on mobile. -->
-	
-
 	<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="css/gumby.css" />
+
 	<title>uOttawa iGEM</title>
 
-	<link href='http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400' rel='stylesheet' type='text/css' />
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" href="css/1140.css" />
-	<link rel="stylesheet" href="css/micrograph.css" />
-
-	<style type="text/css"> 	
-		/* Layout-specific Styles */
-		
-
-		
-		
-		#wrapper-large {
-			margin: auto;
-			max-width: 1000px;
-			min-width: 800px;
-			position: relative;
-		}
-		
-		#content-images, #content-text {
-			position: absolute;
-			width: 100%;
-			z-index: 2;
-		} #content-images div, #content-text div {
-			position: absolute;
-			width: 100%;
-		}
-
-		#footer {
-			color: #999;
-			font-size: .8em;
-			text-align: center;
-			top: 1570px;
-		}
-		
-		/* Provides semi-transparent, white background to paragraphs.*/
-		.text {
-			background-color: rgba(238, 238, 238, .8);
-			box-sizing: border-box;
-			padding: 8px;
-		}
-			
-		/* Classes */
-		.left { text-align: left; }
-		.center { text-align: center; }
-		.right { text-align: right; }
-
-		/* Positioned images and text */
-		#text1 {
-			top: 150px;
-		}
-		#text1-2 {
-			font-family: 'PT Serif';
-			font-size: 1.3em;
-			top: 420px;
-		}
-		#text2 {
-			text-align: right;
-			top: 850px;
-		}
-		#text3 {
-			text-align: center;
-			top: 1325px;
-		}
-		#img1 {
-			text-align: right;
-			top: 0px;
-		} #img1 img { width: 70%; }
-		#img2 {
-			text-align: left;
-			top: 600px;
-		} #img2 img { width: 600px; }
-		#img3 {
-			text-align: center;
-			top: 1050px;
-		} #img3 img {width: 600px; }
-
-		#wrapper-small {display: none;}
-
-		@media only screen and (min-width: 480px) and (max-width: 767px) {
-			#wrapper-large {
-				display: none;
-			}
-
-			#wrapper-small {
-				display: block;
-			}
-
-			.sUnit {
-				margin-bottom: 15px;
-				position: relative;
-				text-align: center;
-			}
-			.sUnit img {
-				max-width: 600px;
-				min-width: 250px
-				position: relative;
-				width: 90%;
-			}
-			.sUnit .text {
-				bottom: 0px;
-				position: absolute;
-				text-align: left;
-			}
-			.sUnit h1 {
-				margin-bottom: 6px;
-				text-align: center;
-			}
-			.sUnit p {
-				text-align: left;
-			}
-		}
-	</style>
-	
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/modernizr.js"></script>
 	<script src="js/css3-mediaqueries.js"></script>
+	<script src="js/skrollr.min.js"></script>
+
+	<script>
+	$(function() {
+		$("body").height(1680);
+		skrollr.init({
+			forceHeight: false
+		});
+	});
+	</script>
 </head>
 <body>
 	<div id="menubar">
-		<img src="images/logo-dna-white.png" height="16px" />
+		<a href="http://www.igem.org"><img src="images/igem-logo.png" /></a>
 		<a href="index.html">Home</a>
-		<a href="project.html">Project</a>
+		<a href="project.html">Wet Lab</a>
+		<a href="software.html">Software</a>
 		<a href="humanpractices.html">Human Practices</a>
 		<a href="team.html">Team</a>
 		<a href="parts.html">Parts</a>
-		<a href="modelling.html">Modelling</a>
 		<a href="notebook.html">Notebook</a>
 		<a href="safety.html">Safety</a>
 		<a href="attributions.html">Attributions</a>
 	</div>
     
-	<div id="spacer"></div>
+	<div id="mspacer"></div>
 
-	<div id="wrapper-large">
-		<div id="content-images" data-0="top: 0px;" data-2200="top: -2200px;">
-			<div id="img1"><img src="images/yeast6.png" /></div>
-			
-			<div id="img2"><img src="images/yeast5.png" /></div>
-			
-			<div id="img3"><img src="images/yeast4.png" /></div>
-		</div>
-		
-		<div id="content-text" >
-			<div class="text" id="text1">
-				<h1>Why fold-change detection?</h1>
-				<p style="width: 400px;">
-					Because fold-change detection is awesome. So awesome, in fact, that it will spontaneously cause your cat to help you with your taxes and cure your grandmother's arthritis. While juggling flaming chainsaws and playing the latest <i>Call of Duty</i> on a Commodore 64. Yup. It's that good.
-					<a href="#">Learn more.</a>
-				</p>
-			</div>
-			<div id="text1-2">&nbsp;Scroll down</div>
-			
-			<div class="text" id="text2">
-				<h1>How can we detect changes in toxic molecules?</h1>
-				<p>
-					Once our system is tuned and is working, it can be modified to act as a fold-change detector for toxic molecules. By replacing the pGEV promoter in front of the rtTA gene with a promoter that is inducible by a toxic molecule, the amount of rtTA produced will be directly correlated to the concentration of the toxic molecule in the cellular environment.
-					<a href="#">Learn more.</a>
-				</p>
-			</div>
+	<div style="position: fixed; width: 100%;">
+		<div class="row unfixed">
+			<div class="scroll-element" id="s-images" data-0="top: 0px;" data-2000="top: -3000px;">
+				<div id="img1" class="text-right"><img src="images/yeast6.png" width="600" /></div>
 				
-			<div class="text" id="text3">
-				<h1>How can we overcome background noise in chemical detection?</h1>
-				<p>
-					This detector system is advantageous in that it detects fold-changes rather than changes in absolute values, which gives meaning to a signal in reference to the background signal level. This allows for the network to respond only to a signal that rises significantly above the background noise.
-					<a href="#">Learn more.</a>
-				</p>
+				<div id="img2" class="text-left" style="top: 850px;"><img src="images/yeast5.png" width="600" /></div>
+				
+				<div id="img3" class="text-center" style="top: 1500px;"><img src="images/yeast4.png" width="600"/></div>
 			</div>
+			
+			<div class="scroll-element" id="s-text" data-0="top: 0px;" data-2000="top: -2000px;">
+				<div class="text" style="top: 200px;">
+					<h3>Why fold-change detection?</h3>
+					<p style="width: 800px;">
+						Most detection systems will look for the absolute concentration of a certain molecule. Fold-change detectors are sensitive to <i>relative changes</i> in concentration. Doubling the input will yield a certain output, and doubling again will yield the same output. Using this method, we can make detectors resistant to background noise, expand dynamic range, and reduce dependence on expensive analysis methods.
+						<a href="#">Learn more.</a>
+					</p>
+				</div>
+				<div id="text1-2" style="top: 430px;">
+					&nbsp;Scroll down&nbsp;
+					<img src="images/arrow-down.png" alt="" />
+				</div>
+				
+				<div class="text text-right" style="top: 700px;">
+					<h3>How can we detect changes in toxic molecules?</h3>
+					<p>
+						Once our system is tuned and is working, it can be modified to act as a fold-change detector for toxic molecules. By replacing the pGEV promoter in front of the rtTA gene with a promoter that is inducible by a toxic molecule, the amount of rtTA produced will be directly correlated to the concentration of the toxic molecule in the cellular environment.
+						<a href="#">Learn more.</a>
+					</p>
+				</div>
+					
+				<div class="text text-center" style="top: 1350px;">
+					<h3>How can we overcome background noise in chemical detection?</h3>
+					<p>
+						This detector system is advantageous in that it detects fold-changes rather than changes in absolute values, which gives meaning to a signal in reference to the background signal level. This allows for the network to respond only to a signal that rises significantly above the background noise.
+						<a href="#">Learn more.</a>
+					</p>
+				</div>
 
-			<div id="footer">
-				&copy; uOttawa iGEM Team 2013. This is frigging awesoooooome.
+				<div id="footer" class="text-right" style="top: 1550px;">
+					&copy; uOttawa iGEM Team 2013. This is frigging awesoooooome.
+				</div>
 			</div>
 		</div>
 	</div>
@@ -189,7 +87,7 @@
 		This wrapper will be shown on handhelds and screen widths under 800px.
 		Parallax scrolling is disabled here.
 	-->
-	<div id="wrapper-small">
+	<!--<div id="wrapper-small">
 		<div class="sUnit">
 			<img src="images/yeast6.png" />
 			<div class="text">
@@ -222,6 +120,6 @@
 				</p>
 			</div>
 		</div>
-	</div>
+	</div>-->
 </body>
 </html>

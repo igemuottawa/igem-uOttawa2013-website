@@ -1,0 +1,25 @@
+$text-opacity: .85;
+
+.scroll-element {
+	position: absolute;
+	width: 100%;
+}
+
+#s-text > *, #s-images > * {
+	position: absolute;
+	width: 100%;
+}
+
+#s-text > .text {
+	background-color: rgba(255, 255, 255, $text-opacity);
+	width: 100%;
+}
+
+#text1-2 {
+	font-family: "PT Serif";
+	font-size: 22px;
+}
+
+#footer {
+	font-size: 12px;
+}
