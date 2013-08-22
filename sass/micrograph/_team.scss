@@ -10,3 +10,12 @@
 		text-align: left;
 	}
 }
+
+#team-tabs {
+	font-size: 28px;
+	text-align: center;
+
+	.active {
+		font-weight: bold;
+	}
+}

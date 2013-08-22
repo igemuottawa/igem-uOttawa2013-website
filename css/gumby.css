@@ -7202,3 +7202,13 @@ body {
 .bio p {
   text-align: left;
 }
+
+/* line 14, ../sass/micrograph/_team.scss */
+#team-tabs {
+  font-size: 28px;
+  text-align: center;
+}
+/* line 18, ../sass/micrograph/_team.scss */
+#team-tabs .active {
+  font-weight: bold;
+}
