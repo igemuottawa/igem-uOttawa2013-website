@@ -37,7 +37,7 @@
     
 	<div id="mspacer"></div>
 
-	<div style="position: fixed; width: 100%;">
+	<div id="desktop" style="position: fixed; width: 100%;">
 		<div class="row unfixed">
 			<div class="scroll-element" id="s-images" data-0="top: 0px;" data-2000="top: -3000px;">
 				<div id="img1" class="text-right"><img src="images/yeast6.png" width="600" /></div>
@@ -49,9 +49,9 @@
 			
 			<div class="scroll-element" id="s-text" data-0="top: 0px;" data-2000="top: -2000px;">
 				<div class="text" style="top: 200px;">
-					<h3>Why fold-change detection?</h3>
+					<h3>What is fold-change detection?</h3>
 					<p style="width: 800px;">
-						Most detection systems will look for the absolute concentration of a certain molecule. Fold-change detectors are sensitive to <i>relative changes</i> in concentration. Doubling the input will yield a certain output, and doubling again will yield the same output. Using this method, we can make detectors resistant to background noise, expand dynamic range, and reduce dependence on expensive analysis methods.
+						Most detection systems will look for the absolute concentration of a certain molecule. This year, we designed and built a <b>fold-change detector</b>, which is responsive to relative changes in input. Using this method, we can make our detector resistant to background noise, expand dynamic range, and reduce dependence on expensive analysis methods such as flow cytometry or fluorescence microscopy.
 						<a href="#">Learn more.</a>
 					</p>
 				</div>
@@ -61,17 +61,17 @@
 				</div>
 				
 				<div class="text text-right" style="top: 700px;">
-					<h3>How can we detect changes in toxic molecules?</h3>
+					<h3>How can we improve the process of designing genes?</h3>
 					<p>
-						Once our system is tuned and is working, it can be modified to act as a fold-change detector for toxic molecules. By replacing the pGEV promoter in front of the rtTA gene with a promoter that is inducible by a toxic molecule, the amount of rtTA produced will be directly correlated to the concentration of the toxic molecule in the cellular environment.
+						Efficient tools for synthetic biology are often expensive. This year, we developed a web-based application that intelligently queries the iGEM registry and allows you to construct genes from available parts. This application, called "bricklayer", will also automatically suggest assembly methods, construct primers, and calculate chemical properties of desired DNA.<br />
 						<a href="#">Learn more.</a>
 					</p>
 				</div>
 					
 				<div class="text text-center" style="top: 1350px;">
-					<h3>How can we overcome background noise in chemical detection?</h3>
+					<h3>Can we promote science and synthetic biology among schoolchildren?</h3>
 					<p>
-						This detector system is advantageous in that it detects fold-changes rather than changes in absolute values, which gives meaning to a signal in reference to the background signal level. This allows for the network to respond only to a signal that rises significantly above the background noise.
+						Our Human Practices team wrote, illustrated, and published a children's book following the adventures of Mr. Cool, a hilariously klutzy scientist who, with the help of his yeast colonies and some clever genetic engineering, can solve all kinds of problems on the microscopic scale.
 						<a href="#">Learn more.</a>
 					</p>
 				</div>
@@ -87,6 +87,9 @@
 		This wrapper will be shown on handhelds and screen widths under 800px.
 		Parallax scrolling is disabled here.
 	-->
+	<div id="mobile">
+		
+	</div>
 	<!--<div id="wrapper-small">
 		<div class="sUnit">
 			<img src="images/yeast6.png" />

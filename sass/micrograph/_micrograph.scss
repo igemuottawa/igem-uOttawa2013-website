@@ -7,6 +7,14 @@ body {
 	background: $background;
 }
 
+a {
+	@include hover-link;
+}
+
+b {
+	font-weight: bold;
+}
+
 #menubar {
 	@include border-radius(20px);
 
