@@ -7174,6 +7174,11 @@ b {
   border-bottom: 1px solid #cccccc;
 }
 
+/* line 64, ../sass/micrograph/_micrograph.scss */
+.island {
+  margin-bottom: 10px;
+}
+
 /* line 3, ../sass/micrograph/_parallax.scss */
 .scroll-element {
   position: absolute;
@@ -7225,4 +7230,17 @@ b {
 /* line 18, ../sass/micrograph/_team.scss */
 #team-tabs .active {
   font-weight: bold;
+}
+
+/* line 23, ../sass/micrograph/_team.scss */
+a.teamGroup {
+  background-color: #ccc;
+  color: black;
+  padding: 5px 8px;
+}
+/* line 28, ../sass/micrograph/_team.scss */
+a.teamGroup.selected {
+  background-color: #333;
+  color: white;
+  text-decoration: none;
 }

@@ -61,5 +61,9 @@ b {
 	border-bottom: $zebra-border;
 }
 
+.island {
+	margin-bottom: 10px;
+}
+
 @import "parallax";
 @import "team";
