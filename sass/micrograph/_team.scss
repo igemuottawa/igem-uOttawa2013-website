@@ -11,23 +11,3 @@
 	}
 }
 
-#team-tabs {
-	font-size: 28px;
-	text-align: center;
-
-	.active {
-		font-weight: bold;
-	}
-}
-
-a.teamGroup {
-	background-color: #ccc;
-	color: black;
-	padding: 5px 8px;
-
-	&.selected {
-		background-color: #333;
-		color: white;
-		text-decoration: none;
-	}
-}

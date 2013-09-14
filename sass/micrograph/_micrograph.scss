@@ -15,6 +15,10 @@ b {
 	font-weight: bold;
 }
 
+i {
+	font-style: oblique;
+}
+
 #menubar {
 	@include border-radius(20px);
 
@@ -25,7 +29,7 @@ b {
 	right: 24px;
 	top: 10px;
 	text-align: center;
-	z-index: 5;
+	z-index: 15;
 
 	img {
 		height: 48px;
@@ -63,6 +67,18 @@ b {
 
 .island {
 	margin-bottom: 10px;
+}
+
+a.tabButton {
+	background-color: #ccc;
+	color: black;
+	padding: 5px 8px;
+
+	&.selected {
+		background-color: #333;
+		color: white;
+		text-decoration: none;
+	}
 }
 
 @import "parallax";
