@@ -7185,13 +7185,13 @@ i {
 }
 
 /* line 72, ../sass/micrograph/_micrograph.scss */
-a.tabButton {
+a.paneLink {
   background-color: #ccc;
   color: black;
   padding: 5px 8px;
 }
 /* line 77, ../sass/micrograph/_micrograph.scss */
-a.tabButton.selected {
+a.paneLink.selected {
   background-color: #333;
   color: white;
   text-decoration: none;

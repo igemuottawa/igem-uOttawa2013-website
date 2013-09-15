@@ -8,25 +8,7 @@
 	<title>uOttawa iGEM 2013 - Team</title>
 
 	<script src="js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript">
-	$(function() {
-		$(".teamGroup").click(function(e) {
-			e.preventDefault();
-			var target = $(e.currentTarget);
-
-			// Show the profiles
-			$(".profileGroup").hide();
-			$(target.attr("href")).show();
-
-			// Update the selected state of the buttons
-			$(".teamGroup").removeClass("selected");
-			target.addClass("selected");
-		});
-
-		$(".profleGroup").hide()
-		$(".teamGroup.selected").click();
-	});
-	</script>
+	<script src="js/panes.js"></script>
 </head>
 <body>
 	<div id="menubar">
@@ -47,10 +29,10 @@
 	<div class="row"><h1>The Team</h1></div>
 
 	<div class="row text-center island">
-		<a class="teamGroup tabButton selected" href=".wetLab">Wet Lab</a>
-		<a class="teamGroup tabButton" href=".dryLab">Dry Lab</a>
-		<a class="teamGroup tabButton" href=".hp">Human Practices</a>
-		<a class="teamGroup tabButton" href=".design">Design</a>
+		<a class="paneLink selected" href=".wetLab">Wet Lab</a>
+		<a class="paneLink" href=".dryLab">Dry Lab</a>
+		<a class="paneLink" href=".hp">Human Practices</a>
+		<a class="paneLink" href=".design">Design</a>
 	</div>
 
 	<div class="row hide" id="team-tabs">
@@ -69,7 +51,7 @@
 	</div>
 	<div class="row hide">&nbsp;</div>
 
-	<div class="row profileGroup wetLab">
+	<div class="row pane wetLab">
 		<div class="three columns bio">
 			<img src="images/profiles/wilson.jpg" />
 			<p>My name is Wilson Lam and I am the dearly loved iGEM president. I work in the lab, where I am ridiculed by my fantastic labmates for my chronic tendency to show up late. In fact, we have graphed my arrival time and found that I arrive later to the lab every day, but it's OK since I have a sleep app that justifies my absences. Sometimes I show up early (like, at noon), but it is only because they give out free lunch. I highly respect everybody in my lab and I would never take credit for their work or accomplishments, like filling all the tip boxes or obtaining free licenses of SnapGene. Cool beans.</p>
@@ -87,7 +69,7 @@
 			<p>Martin Hanzel is starting his first year in Biomedical Science, and is involved in uOttawa's iGEM team as part of his Undergrad Research Scholarship. He works both in the lab and on the computer science team, and is the principal meme creator for iGEM. He thinks highly of his partners and lab mates and is excited to work on such a complex and innovative research project. His hobbies include travel, music, messing with the genetic code of organisms, and speaking in the third person.</p>
 		</div>
 	</div>
-	<div class="row profileGroup wetLab">
+	<div class="row pane wetLab">
 		<div class="three columns bio">
 			<img src="images/profiles/lloyd.jpg" />
 			<p>Lloyd</p>
@@ -98,7 +80,7 @@
 		</div>
 	</div>
 
-	<div class="row profileGroup dryLab">
+	<div class="row pane dryLab">
 		<div class="three columns bio">
 			<img src="images/profiles/peter.jpg" />
 			<p>My name is Peter Doan and I am a second year student at the University of Ottawa studying Mechanical Engineering and Computing Technology. This is my first year participating in the iGem team as a member of the dry lab team. With iGem, it has granted me great insight on what synthetic biology is all about. Outside of iGem, I enjoy exploring new things and places.</p>
@@ -117,14 +99,14 @@
 			<p>Hi, I'm Mohammed Chamma. I'm studying Mathematical Physics here at uOttawa and I'm going into my third year. In my free time I do lots of coding and software development. I'm on the dry lab of the iGEM uOttawa team where I mainly work on an app we're making called "Bricklayer". Having never taken a formal biology course, I joined iGEM in the hopes that I'll learn more about biology and especially DNA. So far it's been great; I've learned a ton and met lots of cool people along the way. I think that everything iGEM is about is great and I can't wait to see more.</p>
 		</div>
 	</div>
-	<div class="row profileGroup dryLab">
+	<div class="row pane dryLab">
 		<div class="three columns bio">
 			<img src="images/profiles/nickT.jpg" />
 			<p>Hi, I am Nicholas, and I am currently a student enrolled in Software Engineering at the University of Ottawa. Having pursued three years of undergraduate studies in bio pharmaceutical sciences, I have acquired the knowledge to understand the chemistry behind the biological systems that surround us. I am very excited and feel very privileged to be able to help compute and predict the biological systems of tomorrow. The University of Ottawa Igem team is a wonderful team where breathes innovation and forward thinking!</p>
 		</div>
 	</div>
 
-	<div class="row profileGroup hp">
+	<div class="row pane hp">
 		<div class="three columns bio">
 			<img src="images/profiles/cory.jpg" />
 			<p>Hi, my name is Cory Lefebvre and I'm a third year Biochemistry student. I've been with iGEM for two years now and I'm continuing in my role in graphic design as the head of the division. One of the major projects this year was the production of the children's book for our human practices division in which I helped by organizing and designing the book and its contents. I have a huge interest in cellular and synthetic biology making me a strong supporter of iGEM and its mission.</p>
@@ -142,7 +124,7 @@
 			<p>Hello! I'm Dina and this fall I'm going into my fourth year of Biopharmaceutical Science; specializing in Medicinal Chemistry. I am really excited to be part of the IGEM competition this year! I am taking part in the Human Practices as a co-illustrator of our children's book. This experience has definitely expanded my love and knowledge of both art and science. Anticipate the great work of our uOttawa IGEM team!</p>
 		</div>
 	</div>
-	<div class="row profileGroup hp">
+	<div class="row pane hp">
 		<div class="three columns bio">
 			<img src="images/profiles/katie.jpg" />
 			<p>I'm Katie Harriman and I am a fourth year student in the Biopharmaceutical Sciences program where I have specialized in Medicinal Chemistry. Although I am a chemist by nature my interdisciplinary background has allowed me to become an integral part of the uOttawa iGEM Team. This year I took on the role of Human Practices Chair and collectively we have produced a full length children's book! I am excited to meet fellow iGEMers!</p>
@@ -160,7 +142,7 @@
 			<p>Yo internet people. I am Amir, a fourth year student in the University of Ottawa doing pretty much the same bio-something or other program as most of the other students on the team. Not to brag but the whole book writing and publishing process is kind of a big deal and I feel like we got this. For those of you out there who play League of Legends hit me up at Farnaz.</p>
 		</div>
 	</div>
-	<div class="row profileGroup hp">
+	<div class="row pane hp">
 		<div class="three columns bio">
 			<img src="images/profiles/alex.jpg" />
 			<p>Yoyoyo broski! I'm Alexandra (Alex for short) and this is my first year taking part in iGEM. I'm part of the Human Practices team where I worked on making our children's book a happy bundle of rhymes that convey synthetic biology. I am going into my third year of Biochemistry and I enjoy learning new things, running and sports, dance, art, and music. Euroswag!</p>
@@ -178,7 +160,7 @@
 			<p>Hey, my name is Kaitlin and I am a third year student studying Biomedical Science with an option in Cellular and Molecular Medicine. I have thoroughly enjoyed my first year participating on the iGEM team as part of human practices! I love the opportunity to learn about biology and its real world applications hands on and through peers instead of through professors in a classroom. I can't wait to present our hard work at the Jamboree and see what all the other iGEM teams have been up to!</p>
 		</div>
 	</div>
-	<div class="row profileGroup hp">
+	<div class="row pane hp">
 		<div class="three columns bio">
 			<img src="images/profiles/mike.jpg" alt="" />
 			<p>Hi there, my name is Michael Xiang and this fall I will be in my 4th year at University of Ottawa studying Biochemistry and Computer Science. As part of this year's iGem team, I have been working on a children's book called "Mr. Cool's Microscopic Adventures". This book will be geared towards elementary students to inspire our youth in the field of synthetic biology =]</p>
@@ -196,7 +178,7 @@
 			<p>My name is Fiatsogbe Dzuali, I'm a third year Biomedical Science student. It's my first year with uOttawa iGEM and I'm enjoying being a part of the human practices team for this year's project. I'm very intersted in many aspects of the life sciences, so getting the opportunity to learn more about synthetic biology while meeting others with similar interests was the major reason I chose to get involved with iGEM. I'm looking forward to an exciting year with the team!</p>
 		</div>
 	</div>
-	<div class="row profileGroup hp">
+	<div class="row pane hp">
 		<div class="three columns bio">
 			<img src="images/profiles/shihab.jpg" />
 			<p>He is called many names and has many hobbies. He is the one and only Shihab Sarwar. He is a member of the human practices group and loves everything about iGEM. One day, he hopes to become a scientist that will change the world for the better.</p>
@@ -211,7 +193,7 @@
 		</div>
 	</div>
 
-	<div class="row profileGroup design">
+	<div class="row pane design">
 		<div class="three columns bio">
 			<img src="images/profiles/huy.jpg" />
 			<p>Salutations! My name is Huy Tran and I'm a third year Biomedical Science student specializing in medicinal chemistry. And like last year, I utilize my skills to ensure our team is properly dressed (t-shirt design) and properly presented (poster design). In addition, I'm assisting the human practices team this year in the design and will-be published children's book. Other than researching all things synthetic chemistry, I enjoy alpine skiing and drinks with friends and colleagues.</p>

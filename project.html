@@ -8,25 +8,7 @@
 	<title>uOttawa iGEM 2013 - Project</title>
 
 	<script src="js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript">
-	$(function() {
-		$(".paneLink").click(function(e) {
-			e.preventDefault();
-			var target = $(e.currentTarget);
-
-			// Show the profiles
-			$(".projectPane").hide();
-			$(target.attr("href")).show();
-
-			// Update the selected state of the buttons
-			$(".paneLink").removeClass("selected");
-			target.addClass("selected");
-		});
-
-		$(".projectPane").hide()
-		$(".paneLink.selected").click();
-	});
-	</script>
+	<script src="js/panes.js"></script>
 </head>
 <body>
 	<div id="menubar">
@@ -46,16 +28,17 @@
 	<div class="row island"></div>
 
 	<div class="row text-center island">
-		<a class="paneLink tabButton selected" href=".intro">Introduction</a>
-		<a class="paneLink tabButton" href=".indepth">In-Depth</a>
-		<a class="paneLink tabButton" href=".data">Data</a>
+		<a class="paneLink selected" href=".intro">Introduction</a>
+		<a class="paneLink" href=".indepth">In-Depth</a>
+		<a class="paneLink" href=".data">Data</a>
+		<a class="paneLink" href=".modelling">Modelling</a>
 	</div>
 
-	<div class="row text-center projectPane intro">
+	<div class="row text-center pane intro">
 		<img src="images/info1.jpg" alt="">
 	</div>
 	
-	<div class="projectPane indepth">
+	<div class="pane indepth">
 		<div class="zebra">
 			<div class="row">
 				<h1>Background</h1>
@@ -105,6 +88,16 @@
 				<p>This detector system is advantageous in that it detects fold-changes rather than changes in absolute values, which gives meaning to a signal in reference to the background signal level. This allows for the network to respond only to a signal that rises significantly above the background noise.</p>
 			</div>
 		</div>
+	</div>
+
+	<div class="row pane data">
+		<h1>This is not the page you're looking for.</h1>
+		<p>Move along.</p>
+	</div>
+
+	<div class="row pane modelling">
+		<h1>This is not the page you're looking for.</h1>
+		<p>Move along.</p>
 	</div>
 </body>
 </html>
