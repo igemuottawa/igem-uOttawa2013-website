@@ -7,6 +7,8 @@
 
 	<title>uOttawa iGEM 2013 - Team</title>
 
+	<link rel="stylesheet" href="css/colorbox.css" />
+
 	<style>
 	#slideRow {
 		position: relative;
@@ -39,12 +41,14 @@
 
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery.slides.min.js"></script>
+	<script src="js/jquery.colorbox-min.js"></script>
 	<script type="text/javascript">
 	$(function() {
-		$("#slides").slidesjs({
+		/*$("#slides").slidesjs({
 			width: 940, height: 720,
 			pagination: { active: false }
-		});
+		});*/
+		$("#slideRow a").colorbox();
 	});
 	</script>
 </head>
@@ -68,14 +72,23 @@
 
 	<div class="row">
 		<p>
-			To make a branch of science as complex and cutting-edge as synthetic biology avilable to all age groups, the Human Practices team wrote a children's book, telling the story of a clumsy researcher, Mr. Cool, and his trusty yeast colonies. Together, Mr. Cool and his yeast solve all sorts of problems using synthetic biology, including oil spill cleanup and fighting bacteria. Read it for yourself!
+			To make a branch of science as complex and cutting-edge as synthetic biology avilable to all age groups, the Human Practices team wrote a children's book, telling the story of a clumsy researcher, Mr. Cool, and his trusty yeast colonies. Together, Mr. Cool and his yeast solve all sorts of problems using synthetic biology, including oil spill cleanup and fighting bacteria. See a preview!
 		</p>
 	</div>
 
 	<div id="slideRow" class="row island">
-		<div id="slides">
+		<div class="four columns">
+			<a href="images/book/p01.jpg"><img src="images/book/p01.jpg" alt="" /></a>
+		</div>
+		<div class="four columns">
+			<a href="images/book/p03.jpg"><img src="images/book/p03.jpg" alt="" /></a>
+		</div>
+		<div class="four columns">
+			<a href="images/book/p09.jpg"><img src="images/book/p09.jpg" alt="" /></a>
+		</div>
+		<!--<div id="slides">
 			<img src="images/book/p01.jpg" />
-			<!--<img src="images/book/p02.jpg" />
+			<img src="images/book/p02.jpg" />
 			<img src="images/book/p03.jpg" />
 			<img src="images/book/p04.jpg" />
 			<img src="images/book/p05.jpg" />
@@ -100,8 +113,8 @@
 			<img src="images/book/p24.jpg" />
 			<img src="images/book/p25.jpg" />
 			<img src="images/book/p26.jpg" />
-			<img src="images/book/p27.jpg" />-->
-		</div>
+			<img src="images/book/p27.jpg" />
+		</div>-->
 	</div>
 
 	<div class="row">
