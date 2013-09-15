@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/colorbox.css" />
 
 	<script src="js/jquery-1.9.1.min.js"></script>
-	<script src="js/jquery.slides.min.js"></script>
+	<script src="js/panes.js"></script>
 	<script src="js/jquery.colorbox-min.js"></script>
 	<script type="text/javascript">
 	$(function() {
@@ -36,27 +36,39 @@
 
 	<div class="row"><h1>Human Practices</h1></div>
 
-	<div class="row">
-		<p>
-			To make a branch of science as complex and cutting-edge as synthetic biology avilable to all age groups, the Human Practices team wrote a children's book, telling the story of a clumsy researcher, Mr. Cool, and his trusty yeast colonies. Together, Mr. Cool and his yeast solve all sorts of problems using synthetic biology, including oil spill cleanup and fighting bacteria. See a preview!
-		</p>
+	<div class="row island text-center">
+		<a href=".book" class="paneLink selected">Children's Book</a>
+		<a href=".data" class="paneLink">Data</a>
 	</div>
 
-	<div id="slideRow" class="row island">
-		<div class="four columns">
-			<a href="images/book/p01.jpg"><img src="images/book/p01.jpg" alt="" /></a>
+	<div class="pane book">
+		<div class="row">
+			<p>
+				To make a branch of science as complex and cutting-edge as synthetic biology avilable to youth, the Human Practices team wrote a children's book. The narrative follows the life of synthetic biologist Mr. Cool, as he attempts to save the microscopic residents of YeastVille from the dire situations of an oil spill and a few unwelcome guests, among other disasters. The book is targeted to an audience of children from the ages of 6-10, and explains the basics of synthetic biology in language that the children can understand. The book will be published in hard copy, as an eBook, and also as an audiobook. See a preview!
+			</p>
 		</div>
-		<div class="four columns">
-			<a href="images/book/p03.jpg"><img src="images/book/p03.jpg" alt="" /></a>
+
+		<div id="slideRow" class="row island book">
+			<div class="four columns">
+				<a href="images/book/p01.jpg"><img src="images/book/p01.jpg" alt="" /></a>
+			</div>
+			<div class="four columns">
+				<a href="images/book/p03.jpg"><img src="images/book/p03.jpg" alt="" /></a>
+			</div>
+			<div class="four columns">
+				<a href="images/book/p09.jpg"><img src="images/book/p09.jpg" alt="" /></a>
+			</div>
 		</div>
-		<div class="four columns">
-			<a href="images/book/p09.jpg"><img src="images/book/p09.jpg" alt="" /></a>
+
+		<div class="row">
+			<p><i>Mr Cool's Microscopic Adventures</i> ...</p>
+			Talk about publishing, kickstarter, e-book, audiobook...
 		</div>
 	</div>
 
-	<div class="row">
-		<p><i>Mr Cool's Microscopic Adventures</i> ...</p>
-		Talk about publishing, kickstarter, e-book, audiobook...
+	<div class="row pane data">
+		<h2>This is not the page you're looking for.</h2>
+		<p>Move along.</p>
 	</div>
 </body>
 </html>
